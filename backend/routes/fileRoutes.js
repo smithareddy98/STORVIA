@@ -2,8 +2,23 @@ const express = require("express");
 const router = express.Router();
 
 const upload = require("../middleware/uploadMiddleware");
-const { uploadFile } = require("../controllers/fileController");
+const protect = require("../middleware/authMiddleware");
 
-router.post("/upload", upload.single("file"), uploadFile);
+const {
+  uploadFile,
+  getFiles,
+  deleteFile,
+} = require("../controllers/fileController");
+
+router.post(
+  "/upload",
+  protect,
+  upload.single("file"),
+  uploadFile
+);
+
+router.get("/", protect, getFiles);
+
+router.delete("/:id", protect, deleteFile);
 
 module.exports = router;

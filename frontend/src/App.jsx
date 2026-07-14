@@ -10,24 +10,52 @@ import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import Upload from "./pages/Upload";
 
+import ProtectedRoute from "./components/ProtectedRoute";
+
 function App() {
   return (
     <BrowserRouter>
-
       <Routes>
 
-        <Route path="/" element={<Home />} />
+        {/* Home */}
+        <Route
+          path="/"
+          element={<Home />}
+        />
 
-        <Route path="/login" element={<Login />} />
+        {/* Login */}
+        <Route
+          path="/login"
+          element={<Login />}
+        />
 
-        <Route path="/register" element={<Register />} />
+        {/* Register */}
+        <Route
+          path="/register"
+          element={<Register />}
+        />
 
-        <Route path="/dashboard" element={<Dashboard />} />
+        {/* Protected Dashboard */}
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
 
-        <Route path="/upload" element={<Upload />} />
+        {/* Protected Upload */}
+        <Route
+          path="/upload"
+          element={
+            <ProtectedRoute>
+              <Upload />
+            </ProtectedRoute>
+          }
+        />
 
       </Routes>
-
     </BrowserRouter>
   );
 }
