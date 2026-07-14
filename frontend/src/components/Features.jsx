@@ -1,62 +1,83 @@
-import { Upload, ShieldCheck, Cloud } from "lucide-react";
-
 function Features() {
+  const features = [
+    {
+      icon: "☁️",
+      title: "Cloud Storage",
+      description:
+        "Securely upload and access your files anytime from anywhere.",
+    },
+    {
+      icon: "🔒",
+      title: "Secure Authentication",
+      description:
+        "JWT-based authentication keeps your files protected and private.",
+    },
+    {
+      icon: "⚡",
+      title: "Lightning Fast",
+      description:
+        "Upload, preview and manage files with high performance.",
+    },
+    {
+      icon: "📱",
+      title: "Responsive Design",
+      description:
+        "Use Storvia seamlessly on desktop, tablet and mobile devices.",
+    },
+    {
+      icon: "🗂️",
+      title: "File Management",
+      description:
+        "Organize, preview and delete your uploaded files with ease.",
+    },
+    {
+      icon: "🚀",
+      title: "Modern Tech Stack",
+      description:
+        "Built using React, Express, MongoDB, Cloudinary and JWT.",
+    },
+  ];
+
   return (
-    <section className="max-w-7xl mx-auto px-8 py-24">
+    <section className="bg-slate-50 py-24">
 
-      <div className="text-center">
+      <div className="max-w-7xl mx-auto px-8">
 
-        <h2 className="text-5xl font-bold">
-          Why Choose STORVIA?
-        </h2>
+        <div className="text-center">
 
-        <p className="text-gray-600 mt-4 text-lg">
-          Store your memories with speed, security and simplicity.
-        </p>
+          <h2 className="text-5xl font-bold text-gray-900">
+            Why Choose Storvia?
+          </h2>
 
-      </div>
-
-      <div className="grid grid-cols-3 gap-8 mt-16">
-
-        <div className="rounded-3xl shadow-xl p-8 hover:shadow-2xl transition">
-
-          <Upload size={50} className="text-blue-600"/>
-
-          <h3 className="text-2xl font-bold mt-6">
-            Fast Upload
-          </h3>
-
-          <p className="text-gray-600 mt-4">
-            Upload photos, videos and documents in seconds.
+          <p className="text-gray-600 mt-6 max-w-2xl mx-auto text-lg">
+            Everything you need to securely upload, organize and access your
+            files in one modern cloud storage platform.
           </p>
 
         </div>
 
-        <div className="rounded-3xl shadow-xl p-8 hover:shadow-2xl transition">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
 
-          <ShieldCheck size={50} className="text-green-600"/>
+          {features.map((feature, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition duration-300"
+            >
 
-          <h3 className="text-2xl font-bold mt-6">
-            Secure Storage
-          </h3>
+              <div className="text-5xl">
+                {feature.icon}
+              </div>
 
-          <p className="text-gray-600 mt-4">
-            Your files remain protected and private.
-          </p>
+              <h3 className="text-2xl font-bold mt-6">
+                {feature.title}
+              </h3>
 
-        </div>
+              <p className="text-gray-600 mt-4 leading-7">
+                {feature.description}
+              </p>
 
-        <div className="rounded-3xl shadow-xl p-8 hover:shadow-2xl transition">
-
-          <Cloud size={50} className="text-sky-600"/>
-
-          <h3 className="text-2xl font-bold mt-6">
-            Access Anywhere
-          </h3>
-
-          <p className="text-gray-600 mt-4">
-            Open your files anytime from any device.
-          </p>
+            </div>
+          ))}
 
         </div>
 
