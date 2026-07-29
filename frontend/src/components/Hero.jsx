@@ -2,113 +2,88 @@ import { Link } from "react-router-dom";
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700 text-white">
-
-      {/* Background Blobs */}
-      <div className="absolute top-0 left-0 w-72 h-72 bg-white/10 rounded-full blur-3xl -translate-x-24 -translate-y-24"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl translate-x-24 translate-y-24"></div>
-
-      <div className="relative max-w-7xl mx-auto px-8 py-24 lg:py-36">
-
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+    <section className="bg-slate-900 text-white">
+      <div className="max-w-[1600px] mx-auto px-10 lg:px-20 py-24">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
 
           {/* Left */}
-          <div>
-
-            <span className="bg-white/20 px-4 py-2 rounded-full text-sm">
-              🚀 Secure • Fast • Reliable
+          <div className="mx-auto lg:mx-0 max-w-xl">
+            <span className="inline-block px-4 py-2 rounded-full bg-blue-600 text-sm">
+              🚀 Trusted by Developers
             </span>
 
-            <h1 className="text-5xl lg:text-7xl font-extrabold leading-tight mt-8">
+            <h1 className="mt-8 text-6xl lg:text-7xl font-extrabold leading-tight tracking-tight">
               Store Your Files
               <br />
-              <span className="text-cyan-300">
-                Anytime,
-              </span>
-              <br />
-              Anywhere.
+              Securely.
             </h1>
 
-            <p className="mt-8 text-lg text-blue-100 max-w-xl leading-8">
-              Storvia is your personal cloud storage platform where you can
-              upload, organize, and access your files securely from anywhere.
+            <p className="mt-8 text-xl text-gray-300 leading-9 max-w-2xl">
+              Storvia lets you upload, organize and access your files from
+              anywhere with enterprise-grade security.
             </p>
 
-            <div className="flex flex-wrap gap-5 mt-10">
+            <div className="mt-10 flex gap-5">
 
-              <Link
-                to="/register"
-                className="bg-white text-blue-700 px-8 py-4 rounded-2xl font-bold shadow-xl hover:scale-105 transition"
-              >
-                Get Started
-              </Link>
+  <Link
+    to="/register"
+    className="px-8 py-4 rounded-full bg-gradient-to-r from-cyan-400 to-blue-600 text-white font-semibold shadow-lg hover:scale-105 transition"
+  >
+    Create Account
+  </Link>
 
-              <Link
-                to="/login"
-                className="border border-white px-8 py-4 rounded-2xl font-bold hover:bg-white hover:text-blue-700 transition"
-              >
-                Login
-              </Link>
+  <Link
+    to="/login"
+    className="px-8 py-4 rounded-full text-white font-semibold hover:text-cyan-300 transition"
+  >
+    Login →
+  </Link>
 
+</div>
+
+            <div className="grid grid-cols-3 gap-8 mt-12">
+              <div>
+                <h2 className="text-3xl font-bold">99.9%</h2>
+                <p>Uptime</p>
+              </div>
+
+              <div>
+                <h2 className="text-3xl font-bold">10K+</h2>
+                <p>Files Stored</p>
+              </div>
+
+              <div>
+                <h2 className="text-3xl font-bold">24/7</h2>
+                <p>Availability</p>
+              </div>
             </div>
-
           </div>
 
           {/* Right */}
-          <div className="flex justify-center">
+          <div className="bg-white text-black rounded-3xl p-8 shadow-2xl w-full max-w-lg mx-auto">
+            <h2 className="text-2xl font-bold">☁️ STORVIA</h2>
+            <p className="text-gray-500 mb-6">Personal Cloud Dashboard</p>
 
-            <div className="bg-white rounded-3xl shadow-2xl p-8 w-full max-w-md">
-
-              <h2 className="text-2xl font-bold text-gray-800">
-                ☁️ STORVIA
-              </h2>
-
-              <p className="text-gray-500 mt-2">
-                Personal Cloud Dashboard
-              </p>
-
-              <div className="mt-8 space-y-4">
-
-                <div className="flex justify-between bg-gray-100 p-4 rounded-xl">
-                  <span>📷 Photos</span>
-                  <span className="font-bold text-blue-600">128</span>
-                </div>
-
-                <div className="flex justify-between bg-gray-100 p-4 rounded-xl">
-                  <span>📄 Documents</span>
-                  <span className="font-bold text-purple-600">52</span>
-                </div>
-
-                <div className="flex justify-between bg-gray-100 p-4 rounded-xl">
-                  <span>🎥 Videos</span>
-                  <span className="font-bold text-pink-600">14</span>
-                </div>
-
+            <div className="space-y-4">
+              <div className="flex justify-between bg-gray-100 p-4 rounded-xl">
+                <span>📷 Photos</span>
+                <span>128</span>
               </div>
 
-              <div className="mt-8">
-
-                <div className="flex justify-between text-gray-600 mb-2">
-                  <span>Storage Used</span>
-                  <span>7.8 GB / 15 GB</span>
-                </div>
-
-                <div className="w-full bg-gray-200 rounded-full h-3">
-
-                  <div className="bg-gradient-to-r from-blue-600 to-purple-600 h-3 rounded-full w-[52%]"></div>
-
-                </div>
-
+              <div className="flex justify-between bg-gray-100 p-4 rounded-xl">
+                <span>📄 Documents</span>
+                <span>52</span>
               </div>
 
+              <div className="flex justify-between bg-gray-100 p-4 rounded-xl">
+                <span>🎥 Videos</span>
+                <span>14</span>
+              </div>
             </div>
-
           </div>
 
         </div>
-
       </div>
-
     </section>
   );
 }

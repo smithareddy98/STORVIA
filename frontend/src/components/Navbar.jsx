@@ -2,7 +2,6 @@ import { Link, useNavigate } from "react-router-dom";
 
 function Navbar() {
   const navigate = useNavigate();
-
   const token = localStorage.getItem("token");
 
   const handleLogout = () => {
@@ -11,70 +10,67 @@ function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200">
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-8 py-4">
+    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-slate-200 shadow-sm">
+      <div className="max-w-[1500px] mx-auto flex items-center justify-between px-8 lg:px-14 py-5">
 
         {/* Logo */}
-        <Link
-          to="/"
-          className="flex items-center gap-2"
-        >
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 flex items-center justify-center text-white text-xl font-bold shadow-lg">
-            ☁
+        <Link to="/" className="flex items-center gap-3">
+
+          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 flex items-center justify-center text-white text-2xl shadow-lg">
+            ☁️
           </div>
 
           <div>
-            <h1 className="text-2xl font-extrabold text-gray-900">
+            <h1 className="text-3xl font-extrabold tracking-tight text-slate-900">
               STORVIA
             </h1>
 
-            <p className="text-xs text-gray-500">
-              Secure Cloud Storage
+            <p className="text-sm text-slate-500">
+              Smart Cloud Storage
             </p>
           </div>
+
         </Link>
 
         {/* Navigation */}
-        <nav className="hidden md:flex gap-8 font-medium text-gray-700">
+        <nav className="hidden lg:flex items-center gap-10 text-slate-700 font-medium">
 
-          <Link
-            to="/"
-            className="hover:text-blue-600 transition"
-          >
+          <Link className="hover:text-blue-600 transition" to="/">
             Home
           </Link>
 
-          <Link
-            to="/dashboard"
-            className="hover:text-blue-600 transition"
-          >
+          <Link className="hover:text-blue-600 transition" to="/dashboard">
             Dashboard
           </Link>
 
-          <Link
-            to="/upload"
-            className="hover:text-blue-600 transition"
-          >
+          <Link className="hover:text-blue-600 transition" to="/upload">
             Upload
           </Link>
 
+          <a
+            href="#features"
+            className="hover:text-blue-600 transition"
+          >
+            Features
+          </a>
+
         </nav>
 
-        {/* Buttons */}
+        {/* Right */}
         <div className="flex items-center gap-4">
 
           {!token ? (
             <>
               <Link
                 to="/login"
-                className="text-gray-700 hover:text-blue-600 font-medium"
+                className="font-semibold text-slate-700 hover:text-blue-600 transition"
               >
                 Login
               </Link>
 
               <Link
                 to="/register"
-                className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-5 py-2 rounded-xl shadow-lg hover:scale-105 transition"
+                className="px-6 py-3 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold shadow-xl hover:scale-105 transition duration-300"
               >
                 Get Started
               </Link>
@@ -82,7 +78,7 @@ function Navbar() {
           ) : (
             <button
               onClick={handleLogout}
-              className="bg-red-500 text-white px-5 py-2 rounded-xl hover:bg-red-600 transition"
+              className="px-6 py-3 rounded-2xl bg-red-500 text-white font-semibold hover:bg-red-600 transition"
             >
               Logout
             </button>
