@@ -38,26 +38,7 @@ Built with a modern full-stack architecture using **React**, **Express.js**, **M
 - JWT Authentication
 - Cloudinary
 - Multer
-
----
-
-## 📸 Screenshots
-
-> Add screenshots here after deployment.
-
-### Landing Page
-
-![Landing Page](screenshots/home.png)
-
-### Dashboard
-
-![Dashboard](screenshots/dashboard.png)
-
-### Login
-
-![Login](screenshots/login.png)
-
----
+  
 
 ## 📁 Project Structure
 
@@ -161,9 +142,9 @@ Recent improvements include:
 
 **Sai Smitha**
 
-LinkedIn: *(Add your LinkedIn URL)*
+LinkedIn: https://www.linkedin.com/in/sai-smitha-y/
 
-GitHub: *(Add your GitHub URL)*
+GitHub: https://github.com/smithareddy98
 
 ---
 
