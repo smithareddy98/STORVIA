@@ -1,7 +1,9 @@
 const cloudinary = require("../utils/cloudinary");
 const File = require("../models/File");
 
-// Upload File
+// =======================
+// UPLOAD FILE
+// =======================
 const uploadFile = async (req, res) => {
   try {
     if (!req.file) {
@@ -17,22 +19,23 @@ const uploadFile = async (req, res) => {
     });
 
     const newFile = await File.create({
-    originalName: req.file.originalname,
-    url: result.secure_url,
-    publicId: result.public_id,
-    fileType: req.file.mimetype,
-    fileSize: req.file.size,
-    uploadedBy: req.user._id,
-   });
+      originalName: req.file.originalname,
+      url: result.secure_url,
+      publicId: result.public_id,
+      fileType: req.file.mimetype,
+      fileSize: req.file.size,
+
+      // Save the logged-in user
+      user: req.user._id,
+    });
 
     res.status(201).json({
       success: true,
       message: "File uploaded successfully",
       file: newFile,
     });
-
   } catch (error) {
-    console.error(error);
+    console.error("Upload Error:", error);
 
     res.status(500).json({
       success: false,
@@ -41,20 +44,22 @@ const uploadFile = async (req, res) => {
   }
 };
 
-// Get All Files
+
+// =======================
+// GET USER FILES
+// =======================
 const getFiles = async (req, res) => {
   try {
     const files = await File.find({
-    uploadedBy: req.user._id,
-   }).sort({ createdAt: -1 });
+      user: req.user._id,
+    }).sort({ createdAt: -1 });
 
     res.status(200).json({
       success: true,
       files,
     });
-
   } catch (error) {
-    console.error(error);
+    console.error("Get Files Error:", error);
 
     res.status(500).json({
       success: false,
@@ -63,10 +68,16 @@ const getFiles = async (req, res) => {
   }
 };
 
-// Delete File
+
+// =======================
+// DELETE USER FILE
+// =======================
 const deleteFile = async (req, res) => {
   try {
-    const file = await File.findById(req.params.id);
+    const file = await File.findOne({
+      _id: req.params.id,
+      user: req.user._id,
+    });
 
     if (!file) {
       return res.status(404).json({
@@ -75,19 +86,16 @@ const deleteFile = async (req, res) => {
       });
     }
 
-    // Delete from Cloudinary
     await cloudinary.uploader.destroy(file.publicId);
 
-    // Delete from MongoDB
     await File.findByIdAndDelete(req.params.id);
 
     res.status(200).json({
       success: true,
       message: "File deleted successfully",
     });
-
   } catch (error) {
-    console.error(error);
+    console.error("Delete Error:", error);
 
     res.status(500).json({
       success: false,
@@ -95,6 +103,7 @@ const deleteFile = async (req, res) => {
     });
   }
 };
+
 
 module.exports = {
   uploadFile,

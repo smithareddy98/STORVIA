@@ -1,4 +1,3 @@
-
 import {
   BrowserRouter,
   Routes,
@@ -10,53 +9,63 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import Upload from "./pages/Upload";
+import FeaturesPage from "./pages/FeaturesPage";
 
 import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
+      <div className="w-full min-h-screen">
 
-        {/* Home */}
-        <Route
-          path="/"
-          element={<Home />}
-        />
+        <Routes>
 
-        {/* Login */}
-        <Route
-          path="/login"
-          element={<Login />}
-        />
+          {/* Public Routes */}
 
-        {/* Register */}
-        <Route
-          path="/register"
-          element={<Register />}
-        />
+          <Route
+            path="/"
+            element={<Home />}
+          />
 
-        {/* Protected Dashboard */}
-        <Route
-          path="/dashboard"
-          element={
-            <ProtectedRoute>
-              <Dashboard />
-            </ProtectedRoute>
-          }
-        />
+          <Route
+            path="/features"
+            element={<FeaturesPage />}
+          />
 
-        {/* Protected Upload */}
-        <Route
-          path="/upload"
-          element={
-            <ProtectedRoute>
-              <Upload />
-            </ProtectedRoute>
-          }
-        />
+          <Route
+            path="/login"
+            element={<Login />}
+          />
 
-      </Routes>
+          <Route
+            path="/register"
+            element={<Register />}
+          />
+
+
+          {/* Protected Routes */}
+
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/upload"
+            element={
+              <ProtectedRoute>
+                <Upload />
+              </ProtectedRoute>
+            }
+          />
+
+        </Routes>
+
+      </div>
     </BrowserRouter>
   );
 }
