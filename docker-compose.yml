@@ -3,7 +3,7 @@ services:
     build: ./backend
     container_name: storvia-backend
     ports:
-      - "5000:5000"
+      - "${BACKEND_PORT}:5000"
     env_file:
       - ./backend/.env
 
@@ -11,6 +11,6 @@ services:
     build: ./frontend
     container_name: storvia-frontend
     ports:
-      - "5173:5173"
+      - "${FRONTEND_PORT}:5173"
     depends_on:
       - backend
