@@ -21,3 +21,8 @@ Thumbs.db
 
 # Uploaded files
 backend/uploads/
+
+# Terraform
+terraform/.terraform/
+terraform/*.tfstate
+terraform/*.tfstate.*
