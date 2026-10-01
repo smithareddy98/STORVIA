@@ -26,3 +26,9 @@ backend/uploads/
 terraform/.terraform/
 terraform/*.tfstate
 terraform/*.tfstate.*
+
+# Grafana local backup
+grafana-backup.db
+
+# Prometheus local data
+prometheus/data/

@@ -19,3 +19,7 @@ resource "local_file" "storvia_info" {
     Infrastructure as Code: Terraform
   EOT
 }
+
+output "storvia_project_file" {
+  value = local_file.storvia_info.filename
+}
